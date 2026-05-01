@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 export const authenticationHandler = (req: Request, res: Response, next: NextFunction): void => {
     // 1. Skip logic for auth routes
-    if (req.path === "/user/login" || req.path === "/user/register") {
+    if (req.path === "/user/login" || req.path === "/user/register" || req.path === "/participantes/register") {
         return next();
     }
 

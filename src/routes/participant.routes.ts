@@ -6,7 +6,7 @@ const router = Router();
 router.get('/', controller.getParticipants);
 
 // Define a POST route with typed body (optional)
-router.post('/', controller.createParticipant);
+router.post('/register', controller.createParticipant);
 
 // Define a PUT route with typed body (optional)
 router.put('/', controller.updateParticipant);
