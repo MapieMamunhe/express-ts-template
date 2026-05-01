@@ -1,17 +1,17 @@
 import { Router, Request, Response } from 'express';
-import * as controller from '../controllers/user.controller';
+import * as controller from '../controllers/participant.controller';
 const router = Router();
 
 // Define a GET route
-router.get('/', controller.getUsers);
+router.get('/', controller.getParticipants);
 
 // Define a POST route with typed body (optional)
-router.post('/register', controller.createUser);
+router.post('/', controller.createParticipant);
 
 // Define a PUT route with typed body (optional)
-router.put('/', controller.updateUser);
+router.put('/', controller.updateParticipant);
 
 // Define a DELETE route with typed body (optional)
-router.delete('/', controller.deleteUser);
+router.delete('/', controller.deleteParticipant);
 
 export default router ;
