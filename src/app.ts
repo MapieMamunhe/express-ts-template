@@ -6,6 +6,9 @@ import { errorHandler, errorNotFoundHandler } from "./middlewares/errorHandler";
 
 // Routes
 import { index } from "./routes/index";
+import userRoutes from "./routes/user.routes";
+
+
 // Create Express server
 export const app = express();
 
@@ -18,6 +21,9 @@ app.use(logger("dev"));
 
 app.use(express.static(path.join(__dirname, "../public")));
 app.use("/", index);
+app.use("/user", userRoutes);
+
+
 
 app.use(errorNotFoundHandler);
 app.use(errorHandler);
