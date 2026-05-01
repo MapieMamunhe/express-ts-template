@@ -5,6 +5,9 @@ const router = Router();
 // Define a GET route
 router.get('/', controller.getUsers);
 
+router.get('/login', controller.login);
+
+
 // Define a POST route with typed body (optional)
 router.post('/register', controller.createUser);
 
