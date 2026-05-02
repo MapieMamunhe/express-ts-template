@@ -1,4 +1,6 @@
-export default interface IEvento {
+import { RowDataPacket } from "mysql2";
+
+export default interface IEvento extends RowDataPacket  {
     id: number;
     nome: string;
     data_evento: Date;

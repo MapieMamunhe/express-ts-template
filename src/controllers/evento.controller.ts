@@ -3,10 +3,23 @@ import IEvento from "../models/evento";
 import { Request, Response } from "express";
 import { ResultSetHeader } from 'mysql2/promise';
 
-export const getEventos = (req: Request, res: Response) => {
-    // Logic to fetch eventos
+export const getEventos = async (req: Request, res: Response) => {
+    try {
+        const sql = "SELECT * FROM evento";
 
-    res.status(200).json({ message: "Fetched all eventos" });
+        const [rows] = await pool.query<IEvento[]>(sql);
+
+        return res.status(200).json({
+            message: "Fetched all eventos",
+            data: rows
+        });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({
+            message: "Internal server error"
+        });
+    }
 };
 
 export const createEvento = async (req: Request, res: Response) => {
