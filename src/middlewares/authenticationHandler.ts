@@ -1,3 +1,4 @@
+import { verifyToken } from "../utils/jwt";
 import { Request, Response, NextFunction } from "express";
 import createError from "http-errors";
 import jwt from "jsonwebtoken";
@@ -18,8 +19,7 @@ export const authenticationHandler = (req: Request, res: Response, next: NextFun
 
     // 3. Verify the token
     try {
-        const secret = process.env.JWT_SECRET || "your-fallback-secret";
-        const decoded = jwt.verify(token, secret);
+        const decoded = verifyToken(token);
         
         // Optionally attach user data to the request object
         (req as any).user = decoded; 

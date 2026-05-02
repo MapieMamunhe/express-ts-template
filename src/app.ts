@@ -8,8 +8,8 @@ import { errorHandler, errorNotFoundHandler } from "./middlewares/errorHandler";
 import { index } from "./routes/index";
 import userRoutes from "./routes/user.routes";
 import participantesRoutes from "./routes/participant.routes";
+import eventoRoutes from "./routes/evento.routes";
 import { authenticationHandler } from "./middlewares/authenticationHandler";
-
 
 // Create Express server
 export const app = express();
@@ -30,6 +30,7 @@ app.use(authenticationHandler);
 app.use("/", index);
 app.use("/user", userRoutes);
 app.use("/participantes", participantesRoutes);
+app.use("/evento", eventoRoutes);
 
 
 
